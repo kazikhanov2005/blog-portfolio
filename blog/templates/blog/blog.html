@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <center><h1>Главная страница</h1></center>
+    <br>
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content|truncatewords:6 }}</p>
+        <!-- ИСПРАВЛЕННАЯ СТРОКА -->
+
+        <hr>
+    {% endfor %}
+{% endblock %}
