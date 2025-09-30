@@ -1,57 +1,105 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title }}</title>
-
-	<!-- Bootstrap reboot (для сброса стилей) -->
-	<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
-
-	<!-- Bootstrap сетка -->
-	<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
-
-	<!-- Шрифты с Google Fonts -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-	<!-- Стили сайта -->
-	<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DevBlog - Портфолио разработчика{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
-
 <body>
+    <!-- ШАПКА САЙТА -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <!-- Логотип -->
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}" class="logo">
+                        <span class="logo-icon">🚀</span>
+                        <span class="logo-text">DevBlog</span>
+                    </a>
+                </div>
 
-	<!-- СОДЕРЖИМОЕ САЙТА -->
-	<nav class="navbar">
-		<div class="container">
-			<a href="#" class="navbar-brand">HTML&CSS</a>
+                <!-- Основное меню -->
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link">
+                            <i class='bx bx-home'></i>
+                            Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog-list' %}" class="nav-link">
+                            <i class='bx bx-news'></i>
+                            Блог
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link">
+                            <i class='bx bx-briefcase'></i>
+                            Проекты
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'portfolio' %}" class="nav-link">
+                            <i class='bx bx-user'></i>
+                            Обо мне
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link">
+                            <i class='bx bx-envelope'></i>
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
 
-			<div class="navbar-wrap">
-				<ul class="navbar-menu">
-				   <li><a href="#">Главная</a></li>
-				   <li><a href="#">Портфолио</a></li>
-				   <li><a href="#">Блог</a></li>
-				   <li><a href="#">Контакты</a></li>
-				   <li><a href="#">Цены</a></li>
-			    </ul>
+                <!-- Правая часть (поиск и кнопка) -->
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Поиск...">
+                    </div>
+                    <a href="{% url 'home' %}" class="cta-button">
+                        Связаться
+                    </a>
+                </div>
 
+                <!-- Мобильное меню -->
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
-		</div>
+            </div>
+        </nav>
+    </header>
 
+                <!-- Мобильное меню -->
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-		</div>
-	</nav>
+    <!-- Основной контент -->
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
 
+    <!-- Подвал -->
+    <footer class="footer">
+        <!-- ваш футер -->
+    </footer>
 
-	{% block content %}
-
-	{% endblock content %}
-
-
-
+    <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>

@@ -1,14 +1,96 @@
+
+
+<!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-    <center><h1>Главная страница</h1></center>
-    <br>
-    {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.content|truncatewords:6 }}</p>
-        <!-- ИСПРАВЛЕННАЯ СТРОКА -->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - Мой Блог</title>
+    <link rel="stylesheet" href="{% static 'blog/css/blog-list.css' %}">
+</head>
+<body>
 
-        <hr>
-    {% endfor %}
-{% endblock %}
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="container">
+        <!-- ЗАГОЛОВОК БЛОГА -->
+        <div class="blog-header">
+            <h1>📝 Мой Блог</h1>
+            <p>Здесь я делюсь своим опытом, мыслями и находками в мире разработки</p>
+        </div>
+
+        <!-- ФИЛЬТРЫ -->
+        <div class="blog-filters">
+            <button class="filter-btn active">Все</button>
+            <button class="filter-btn">Технологии</button>
+            <button class="filter-btn">Туториалы</button>
+            <button class="filter-btn">Личное</button>
+            <button class="filter-btn">Новости</button>
+        </div>
+
+        <!-- СЕТКА ПОСТОВ -->
+        <div class="posts-grid">
+            {% for post in posts %}
+            <!-- ПОСТ 1 -->
+            <article class="post-card tech">
+                <img src="https://i.pinimg.com/originals/0d/0c/da/0d0cda50d82a825d602ad45547112b0d.jpg" alt="Python Django" class="post-image">
+                <div class="post-content">
+                    <span class="post-category">Технологии</span>
+                    <h2 class="post-title">
+                        <a href="post1.html">{{ post.title }}</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        {{ post.content }}
+                    </p>
+                    <div class="post-meta">
+                        <span class="post-date">📅 {{ post.created_date }}</span>
+                        <span class="post-reading-time">⏱️ 8 мин</span>
+                    </div>
+                    <a href="{% url 'blog-detail' post.id %}" class="read-more">Читать далее</a>
+                    <div class="post-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Backend</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+
+
+    <script>
+        // Простой фильтр по категориям
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const postCards = document.querySelectorAll('.post-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Убираем активный класс у всех кнопок
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+
+                    const filter = this.textContent.toLowerCase();
+
+                    postCards.forEach(card => {
+                        if (filter === 'все') {
+                            card.style.display = 'block';
+                        } else {
+                            const category = card.querySelector('.post-category').textContent.toLowerCase();
+                            if (category.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+{% endblock content %}
+</body>
+</html>

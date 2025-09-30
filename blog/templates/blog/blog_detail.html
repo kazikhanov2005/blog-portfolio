@@ -1,10 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-<div class="post-detail">
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
+{% block title %}{{ post.title }} - Мой Блог{% endblock %}
 
+{% block content %}
+<link rel="stylesheet" href="{% static 'blog/css/blog-detail.css' %}">
+<div class="container">
+    <!-- КНОПКА НАЗАД -->
+    <nav class="back-nav">
+        <a href="{% url 'home' %}" class="back-link">← Назад к блогу</a>
+    </nav>
+
+    <!-- КОНТЕНТ ПОСТА -->
+    <article class="post-content">
+        <div class="post-header">
+            <span class="post-category">{{ post.category }}</span>
+            <h1 class="post-title">{{ post.title }}</h1>
+            <div class="post-meta">
+                <span>📅 {{ post.created_date|date:"d.m.Y" }}</span>
+                <span>⏱️ {{ post.reading_time }} мин чтения</span>
+                <span>👁️ {{ post.views }} просмотров</span>
+            </div>
+        </div>
+
+        <div class="post-body">
+            {{ post.content|linebreaks }}
+        </div>
+
+        <div class="post-tags">
+            <div class="tags-title">Теги:</div>
+            {% for tag in post.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+    </article>
+
+    <!-- НАВИГАЦИЯ МЕЖДУ ПОСТАМИ -->
+    <div class="post-navigation">
+        {% if previous_post %}
+            <a href="{% url 'blog-detail' previous_post.id %}" class="nav-button">← {{ previous_post.title }}</a>
+        {% endif %}
+
+        {% if next_post %}
+            <a href="{% url 'blog-detail' next_post.id %}" class="nav-button">{{ next_post.title }} →</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

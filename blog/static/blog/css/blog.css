@@ -1,0 +1,257 @@
+ /* БАЗОВЫЕ СТИЛИ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            background: rgba(52, 73, 94, 0.9);
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* ОСНОВНОЙ КОНТЕНТ */
+        .profile-section {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .profile-info h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .profile-info .tagline {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .profile-info .description {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* НАВЫКИ */
+        .skills-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            border-left: 5px solid;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .frontend {
+            border-left-color: #e74c3c;
+        }
+
+        .backend {
+            border-left-color: #3498db;
+        }
+
+        .tools {
+            border-left-color: #2ecc71;
+        }
+
+        .design {
+            border-left-color: #9b59b6;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.4em;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            background: white;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        .skill-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .frontend .skill-item {
+            border-left-color: #e74c3c;
+            background: linear-gradient(135deg, #fff, #ffeaea);
+        }
+
+        .backend .skill-item {
+            border-left-color: #3498db;
+            background: linear-gradient(135deg, #fff, #eaf2f8);
+        }
+
+        .tools .skill-item {
+            border-left-color: #2ecc71;
+            background: linear-gradient(135deg, #fff, #eafaf1);
+        }
+
+        .design .skill-item {
+            border-left-color: #9b59b6;
+            background: linear-gradient(135deg, #fff, #f4ecf7);
+        }
+
+        /* ОПЫТ И ЦЕЛИ */
+        .experience-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .goal-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: scale(1.05);
+        }
+
+        .goal-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        /* АНИМАЦИИ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-section, .skills-section, .experience-section {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+        }
+    </style>

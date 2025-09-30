@@ -1,0 +1,355 @@
+/* СТИЛИ ДЛЯ СТРАНИЦЫ ОБО МНЕ */
+.about-container {
+    background: linear-gradient(0deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.header.header {
+    top: 20px;
+    border: 100px;
+    height: 100px;
+}
+
+/* ГЕРОЙ СЕКЦИЯ */
+.hero-section {
+    padding: 60px 0;
+    color: #2154b7;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    flex-shrink: 0;
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.photo-placeholder p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.hero-info h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.location {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* СЕКЦИИ */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: black;
+}
+
+.education-section,
+.skills-section,
+.projects-section,
+.goals-section,
+.contact-section {
+    padding: 60px 0;
+}
+
+.education-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.skills-section {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.projects-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.goals-section {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* ТАЙМЛАЙН ОБРАЗОВАНИЯ */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.timeline-date {
+    flex: 0 0 150px;
+    font-weight: bold;
+    color: #667eea;
+    text-align: right;
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #667eea;
+}
+
+.timeline-content h3 {
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.timeline-subtitle {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* НАВЫКИ */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.skill-category h3 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-item {
+    background: #667eea;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ПРОЕКТЫ */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.project-card h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack span {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* ЦЕЛИ */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.goal-card h4 {
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.goal-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* КОНТАКТЫ */
+.contact-text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #2d3748;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-btn.primary {
+    background: #667eea;
+    color: white;
+}
+
+.contact-btn.primary:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+}
+
+.contact-btn.secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.contact-btn.secondary:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .timeline-date {
+        text-align: left;
+    }
+
+    .section-title {
+        font-size: 2rem;
+
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-btn {
+        width: 200px;
+        text-align: center;
+    }
+}
