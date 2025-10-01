@@ -27,9 +27,7 @@
                 <nav>
                     <ul>
                         <li><a href="{% url 'home' %}">Главная</a></li>
-
-                        <li><a href="#blog">Блог</a></li>
-
+                        <li><a href="{% url 'projects' %}">Проекты</a></li>
                         <li><a href="#contact" class="contact-btn">Связаться</a></li>
                     </ul>
                 </nav>
@@ -37,28 +35,30 @@
         </div>
     </header>
 
-<section id="blog" class="blog">
+<section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
-                <h2>БЛОГ</h2>
+                <h2>Мои проекты</h2>
             </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <i class="fas fa-code fa-3x"></i>
+            <div class="projects-grid">
+                <div class="project-card">
+
+                    <div class="project-img">
+                        <i class="fas fa-blog fa-3x"></i>
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> 15 мая 2023</span>
-                            <span class="blog-category">Python</span>
+                    <div class="project-content">
+                        <h3>Блог-портфолио</h3>
+                        <p>Сайт на Django с системой блога, портфолио и обратной связью</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">HTML/CSS</span>
+                            <a href="{% url 'projects' %}" class="read-more">Смотреть →</a>
                         </div>
-                        <h3>Почему Django - лучший фреймворк для начинающих</h3>
-                        <p>В этой статье я расскажу о преимуществах Django для начинающих разработчиков и почему он отлично подходит для создания веб-приложений.</p>
-                        <a href="{% url 'blog' %}" class="read-more">Читать далее →</a>
                     </div>
                 </div>
             </div>
         </div>
-</section>
+    </section>
 
 {% endblock %}

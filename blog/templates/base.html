@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+{% load static %}
+{% load custom_tags %}
+{% block content %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Казиханов Шихсафар | Python Developer {% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'blog/css/in_ma.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="{% url 'home' %}" class="logo">Шихсафар<span>.</span></a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Главная</a></li>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#skills">Навыки</a></li>
+                        <li><a href="#projects">Проекты</a></li>
+                        <li><a href="#education">Образование</a></li>
+                        <li><a href="#goals">Цели</a></li>
+                        <li><a href="#blog">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#contact" class="contact-btn">Связаться</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="{% static 'blog/images/S600xU_2x.webp' %}" alt="Казиханов Шихсафар" class="profile-img">
+                <h1>{{ name }}</h1>
+                <p>Python Developer | Software Engineering Student</p>
+                <p>📍 Estonia, Tallinn, Harjumaa</p>
+                <div class="tech-stack">
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">Django</div>
+                    <div class="tech-item">Django REST</div>
+                    <div class="tech-item">PostgreSQL</div>
+                    <div class="tech-item">HTML/CSS</div>
+                    <div class="tech-item">JavaScript</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Обо мне</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Python Backend Developer</h3>
+                    <p>Я студент программной инженерии с более чем 2-летним опытом в IT. Специализируюсь на разработке бэкенда с использованием Python и Django. Увлекаюсь созданием эффективных и масштабируемых веб-приложений.</p>
+                    <p>В настоящее время проживаю в Таллинне, Эстония, где продолжаю обучение и работаю над собственными проектами.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <div class="number">{{ get_age }}</div>
+                        <div class="label">лет</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="number">3</div>
+                        <div class="label">курс</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="number">2+</div>
+                        <div class="label">года в IT</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="number"><p>{{ geolocation }}</p></div>
+                        <div class="label">местоположение</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Технические навыки</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>🐍 Backend</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fas fa-code"></i> Django</li>
+                        <li><i class="fas fa-cogs"></i> Django REST</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                        <li><i class="fas fa-database"></i> SQLite</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🎨 Frontend</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js-square"></i> JavaScript</li>
+                        <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠 Инструменты</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                        <li><i class="fas fa-code"></i> VS Code</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                        <li><i class="fab fa-linux"></i> Linux</li>
+                        <li><i class="fas fa-toolbox"></i> Postman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мои проекты</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+
+                    <div class="project-img">
+                        <i class="fas fa-blog fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Блог-портфолио</h3>
+                        <p>Сайт на Django с системой блога, портфолио и обратной связью</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">HTML/CSS</span>
+                            <a href="{% url 'projects' %}" class="read-more">Смотреть →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Образование</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - настоящее время</span>
+                        <h3>Университет города Каспийск</h3>
+                        <p>Программный инженер • Бакалавр</p>
+                        <p>Изучаю фундаментальные основы программирования, алгоритмы, базы данных и веб-разработку.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 - 2022</span>
+                        <h3>Колледж</h3>
+                        <p>Мастер по обработке цифровой информации</p>
+                        <p>Получил базовые навыки работы с компьютерными системами, сетями и программным обеспечением.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023</span>
+                        <h3>Skill Factory</h3>
+                        <p>Python разработчик • Диплом</p>
+                        <p>Прошел профессиональное обучение Python, Django, веб-разработке и современным IT-технологиям.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="goals">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мои цели</h2>
+            </div>
+            <div class="goals-container">
+                <div class="goal-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Стать Junior Python Developer</h3>
+                    <p>Углубить знания в Python и фреймворках, участвовать в коммерческих проектах</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Закончить университет</h3>
+                    <p>Получить диплом бакалавра по программной инженерии с отличными оценками</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Найти стажировку</h3>
+                    <p>Получить практический опыт работы в IT-компании</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Участвовать в opensource</h3>
+                    <p>Вносить вклад в развитие сообщества разработчиков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мой блог</h2>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-code fa-3x"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> 15 мая 2023</span>
+                            <span class="blog-category">Python</span>
+                        </div>
+                        <h3>Почему Django - лучший фреймворк для начинающих</h3>
+                        <p>В этой статье я расскажу о преимуществах Django для начинающих разработчиков и почему он отлично подходит для создания веб-приложений.</p>
+                        <a href="{% url 'blog' %}" class="read-more">Читать далее →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакты</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>Estonia, Tallinn, Harjumaa</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>shikhsafar.kazikhanov@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+372 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Время для связи</h3>
+                            <p>Пн - Пт: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Обо мне</h3>
+                    <p>Python Developer и студент программной инженерии. Специализируюсь на создании веб-приложений с использованием Django и современных технологий.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#skills">Навыки</a></li>
+                        <li><a href="#projects">Проекты</a></li>
+                        <li><a href="#blog">Блог</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Estonia, Tallinn, Harjumaa</li>
+                        <li><i class="fas fa-envelope"></i> dev.attention.developer@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +7 989-453-24-08</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Казиханов Шихсафар. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu after clicking a link
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

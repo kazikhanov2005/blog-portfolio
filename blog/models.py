@@ -4,11 +4,19 @@ from django.utils import timezone
 
 
 class Category(models.Model):
+
+    CATEGORY_CHOICES = [
+        ('Технологии', 'ТХ',),
+        ('Туториалы', 'ТУ',),
+        ('Личное', 'ЛЧ',),
+        ('Новости', 'НВ',),
+    ]
     name = models.CharField(max_length=100)
+    tags = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
-        return self.name
+        return self.tags
 
 
 class Post(models.Model):
@@ -21,7 +29,7 @@ class Post(models.Model):
     slug = models.SlugField(unique_for_date='publish_date')
     content = models.TextField()
     excerpt = models.TextField(max_length=300, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default='admin')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     featured_image = models.ImageField(upload_to='blog/images/', blank=True)
     publish_date = models.DateTimeField(default=timezone.now)
